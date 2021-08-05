@@ -1,0 +1,12 @@
+<textarea #info ></textarea>
+
+<div class="controls">
+
+  <div class="dates">
+    <input type="date" #from_date>
+    <input type="date" #to_date>
+  </div>
+
+  <button (click)="onClick(info.value, from_date.value, to_date.value)" >Submit Request</button>
+
+</div>
