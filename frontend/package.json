@@ -21,6 +21,9 @@
     "@angular/platform-browser-dynamic": "~12.1.0",
     "@angular/router": "~12.1.0",
     "axios": "^0.21.1",
+    "cogo-toast": "^4.2.3",
+    "js-cookie": "^3.0.0",
+    "ngx-toastr": "^14.1.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
@@ -30,6 +33,7 @@
     "@angular/cli": "~12.1.4",
     "@angular/compiler-cli": "~12.1.0",
     "@types/jasmine": "~3.8.0",
+    "@types/js-cookie": "^2.2.7",
     "@types/node": "^12.11.1",
     "jasmine-core": "~3.8.0",
     "karma": "~6.3.0",
