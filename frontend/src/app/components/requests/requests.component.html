@@ -12,19 +12,19 @@
     </thead>
     <tbody>
 
-      <tr>
+      <tr *ngFor="let request of requests">
         <td>
-          <img src="./../../../assets/media/9.png" alt="">
+          <img [src]="request.image" alt="">
           <p class="user-data">
-            <span>Ahmad Sami</span>
-            <span>Alb Hala@gmail.com</span>
+            <span>{{ request.first_name }} {{ request.last_name }}</span>
+            <span>{{ request.email }}</span>
           </p>
         </td>
-        <td>15-02-2021</td>
-        <td>20-02-2021</td>
-        <td>5</td>
-        <td title="My daughter wedding next month and its very important for me to be there">
-          My daughter wedding next month and its very important for me to be there
+        <td>{{ request.from_date }}</td>
+        <td>{{ request.to_date }}</td>
+        <td>{{ diffDates(request.from_date, request.to_date) }}</td>
+        <td [title]="request.message">
+          {{ request.message }}
         </td>
         <td>
           <button><i class="far fa-check"></i></button>

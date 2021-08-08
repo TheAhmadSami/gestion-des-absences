@@ -1,9 +1,9 @@
 <?php
   require_once("_config.php");
 
-  $employeeId = $_POST['employee_id'];
-  $fromDate = $_POST['from_date'];
-  $toDate = $_POST['to_date'];
+  $employeeId = $_POST['employeeId'];
+  $fromDate = $_POST['fromDate'];
+  $toDate = $_POST['toDate'];
   $message = $_POST['message'];
   $status = REQUEST_SUBMITED;
   $submitDate = $date->getNow();

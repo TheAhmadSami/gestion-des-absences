@@ -1,2 +1,3 @@
-<app-admin-page></app-admin-page>
-<!-- <app-employee-page></app-employee-page> -->
+<app-admin-page *ngIf="adminCompStatus"></app-admin-page>
+<app-employee-page *ngIf="employeeCompStatus"></app-employee-page>
+<app-login *ngIf="loginCompStatus" (loginBtnClicked)="loginBtnClicked($event)" ></app-login>

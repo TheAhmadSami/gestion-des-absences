@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,7 @@ import { EmployeeMenuComponent } from './components/employee-menu/employee-menu.
 import { EmployeeRequestComponent } from './components/employee-request/employee-request.component';
 import { LoginComponent } from './components/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
+import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ToastrModule } from 'ngx-toastr';
     AdminMenuComponent,
     EmployeeMenuComponent,
     EmployeeRequestComponent,
-    LoginComponent
+    LoginComponent,
+    AddEmployeeComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatSortModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

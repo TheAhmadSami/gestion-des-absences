@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPageComponent implements OnInit {
 
+  button_text: string = 'Add Employee';
+  addEmployeeModel: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+    
+  }
+
+
+  showEmployeeForm(){
+    this.addEmployeeModel = true;
+  }
+
+  closeAddEmployee(){
+    this.addEmployeeModel = false;
   }
 
 }

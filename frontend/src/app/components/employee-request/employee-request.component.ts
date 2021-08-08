@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { ToastrService } from 'ngx-toastr';
 
-
-import { url } from './../_config';
+import { url } from '../../_config';
 
 @Component({
   selector: 'app-employee-request',
@@ -24,10 +23,10 @@ export class EmployeeRequestComponent implements OnInit {
   onClick(message:string, fromDate: string, toDate: string){
     
     let formData = new FormData();
-    formData.append('employee_id', this.employeeId);
+    formData.append('employeeId', this.employeeId);
     formData.append('message', message);
-    formData.append('from_date', fromDate);
-    formData.append('to_date', toDate);
+    formData.append('fromDate', fromDate);
+    formData.append('toDate', toDate);
 
     axios({
       method: 'post',
@@ -41,6 +40,7 @@ export class EmployeeRequestComponent implements OnInit {
     .catch(response => {
       console.log(response);
     });
+    
   }
 
 }

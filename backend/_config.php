@@ -23,10 +23,15 @@
   define("AUTH_PW", 'UWIH645D7WJTX56Q7H5CB865C4QJ5X78OX58945QI786X5I6Q25');
 
 
-  //OWNER STATUS  *******************************************************
+  //REQUEST STATUS  *******************************************************
   define("REQUEST_SUBMITED", 0);
   define("REQUEST_ACCEPTED", 1);
   define("REQUEST_REJECTED", 2);
+
+
+  //User STATUS  *******************************************************
+  define("ADMIN_CODE", 1);
+  define("EMPLOYEE_CODE", 2);
 
 
 
