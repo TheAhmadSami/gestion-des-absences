@@ -1,67 +1,67 @@
-app-requests {
+app-requests{
   width: 100%;
   height: calc(100% - 132px);
   margin-top: 20px;
   display: block;
   overflow-y: auto;
 
-
+  
 }
 
-.requests-body {
+.requests-body{
   width: 100%;
 
-  table {
+  table{
     width: inherit;
     height: inherit;
     line-height: 1.1;
     gap: 10px;
 
-    thead {
+    thead{
       font-weight: 700;
 
-      th {
+      th{
         padding: 0 20px;
         text-align: left;
 
-        &:nth-child(1) {
+        &:nth-child(1){
           padding-left: 0px;
         }
 
-        &:nth-child(4) {
+        &:nth-child(4){
           text-align: center;
         }
       }
 
     }
 
-    tbody {
+    tbody{
 
-      &::before {
-        line-height: 20px;
-        content: "\200C";
-        display: block;
+      &::before{
+        line-height:20px;
+        content:"\200C";
+        display:block;
       }
 
-      tr {
+      tr{
 
-        td {
+        td{
           padding: 0 20px;
           padding-bottom: 20px;
           text-overflow: ellipsis;
           white-space: nowrap;
-
-          &:nth-child(1) {
+          
+          &:nth-child(1){
             display: flex;
             align-items: center;
             padding-left: 0px;
             margin-right: -35px;
 
-            p {
+            p{
 
-              span {
+              span{
 
-                &:nth-child(1) {
+                &:nth-child(1){
                   font-weight: 700;
                   font-size: 16px;
                 }
@@ -69,48 +69,48 @@ app-requests {
             }
           }
 
-          &:nth-child(4) {
+          &:nth-child(4){
             text-align: center;
           }
 
-          &:nth-child(5) {
+          &:nth-child(5){
             overflow: hidden;
             max-width: 400px;
             text-overflow: ellipsis;
             white-space: nowrap;
           }
 
-          &:last-child {
-
-            button {
+          &:last-child{
+            
+            button{
               width: 40px;
               height: 40px;
               display: inline-flex;
               justify-content: center;
               align-items: center;
 
-              &:nth-child(1) {
+              &:nth-child(1){
                 margin-right: 10px;
                 background: #00DD8C;
                 color: #fff;
 
-                &:hover {
+                &:hover{
                   background: darken(#00DD8C, 4%);
                 }
               }
 
-              &:nth-child(2) {
+              &:nth-child(2){
                 margin-right: 10px;
                 background: #D9D9D9;
                 color: #9C9C9C;
 
-                &:hover {
+                &:hover{
                   background: #FF003B;
                   color: #fff;
                 }
               }
 
-              i {
+              i{
                 margin: 0;
               }
             }
@@ -123,7 +123,7 @@ app-requests {
 
     }
 
-    .user-data {
+    .user-data{
       margin-left: 10px;
     }
 
@@ -134,13 +134,14 @@ app-requests {
       border: 3px solid #DCDDE0;
     }
 
-    p {
+    p{
       margin: 0;
     }
 
-    span {
+    span{
       display: block;
       white-space: nowrap;
     }
   }
 }
+

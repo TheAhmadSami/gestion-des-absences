@@ -39,6 +39,7 @@
         text-decoration: none;
         color: #fff;
         transition: .3s;
+        pointer-events: none;
 
         &.logout {
           color: #ff003b;

@@ -350,6 +350,24 @@ app-requests {
   overflow-x: auto;
 }
 
+app-employee {
+  width: 100%;
+  height: calc(100% - 132px);
+  margin-top: 20px;
+  display: block;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+app-finished-requests {
+  width: 100%;
+  height: calc(100% - 132px);
+  margin-top: 20px;
+  display: block;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
 app-login{
   width: 100%;
   height: 100%;

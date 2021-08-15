@@ -33,19 +33,21 @@ export class LoginComponent implements OnInit {
       headers: { 'Content-Type': 'multipart/form-data' }
     })
       .then(response => {
-             
+
         if (response.data) {
 
-          let data = response.data[0];          
+          let data = response.data[0];
 
-          if (data['type'] == 1) 
+          if (data['type'] == 1) {
             this.loginBtnClicked.emit('1');
-          
-          else if (data['type'] == 2) 
+            window.location.href = '/requests';
+          }
+
+          else if (data['type'] == 2)
             this.loginBtnClicked.emit('2');
 
           this.cookieService.set('halaLogin', data['id'], 14);
-          
+
 
         } else {
 

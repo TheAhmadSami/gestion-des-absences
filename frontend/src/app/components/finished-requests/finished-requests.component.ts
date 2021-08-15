@@ -4,15 +4,15 @@ import axios from 'axios';
 import { url } from './../../_config';
 
 @Component({
-  selector: 'app-requests',
-  templateUrl: './requests.component.html',
-  styleUrls: ['./requests.component.scss']
+  selector: 'app-finished-requests',
+  templateUrl: './finished-requests.component.html',
+  styleUrls: ['./finished-requests.component.scss']
 })
-export class RequestsComponent implements OnInit {
+export class FinishedRequestsComponent implements OnInit {
 
   requests: any;
 
-  constructor() {
+  constructor() { 
     this.loadRequests();
   }
 
@@ -33,7 +33,7 @@ export class RequestsComponent implements OnInit {
 
     axios({
       method: 'post',
-      url: url + 'getRequests.php',
+      url: url + 'getFinishedRequests.php',
       headers: { 'Content-Type': 'multipart/form-data' }
     })
       .then(response => {

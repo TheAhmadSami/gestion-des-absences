@@ -20,6 +20,8 @@ import { EmployeeRequestComponent } from './components/employee-request/employee
 import { LoginComponent } from './components/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
+import { AuthGuard } from './Auth';
+import { FinishedRequestsComponent } from './components/finished-requests/finished-requests.component'
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { AddEmployeeComponent } from './components/add-employee/add-employee.com
     EmployeeMenuComponent,
     EmployeeRequestComponent,
     LoginComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    FinishedRequestsComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,10 @@ import { AddEmployeeComponent } from './components/add-employee/add-employee.com
     MatSortModule,
     ToastrModule.forRoot()
   ],
-  providers: [CookieService],
+  providers: [
+    CookieService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,7 +10,7 @@
   ON
     users.id=requests.employee_id
   WHERE 
-    requests.status = 0');
+    requests.status = 1 OR requests.status = 2');
 
   if ($dbResult) {
     printResult(json_encode($dbResult));
