@@ -1,6 +1,6 @@
 @import './../../../styles.scss';
 
-#add-employee {
+#edit-user {
   @include flex-center-center;
   flex-direction: column;
   gap: 20px;
@@ -12,6 +12,10 @@
   background: rgba(0, 0, 0, .8);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
+
+  .rdays{
+    color: #000;
+  }
 
   .close-btn {
     border-radius: 50px;

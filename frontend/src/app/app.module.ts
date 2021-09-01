@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CookieService } from 'ngx-cookie-service';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ControlsComponent } from './components/controls/controls.component';
 import { UserComponent } from './components/user/user.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,12 +21,13 @@ import { LoginComponent } from './components/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { AuthGuard } from './Auth';
-import { FinishedRequestsComponent } from './components/finished-requests/finished-requests.component'
+import { FinishedRequestsComponent } from './components/finished-requests/finished-requests.component';
+import { EmployeeRequestsComponent } from './components/employee-requests/employee-requests.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    ControlsComponent,
     UserComponent,
     EmployeeComponent,
     RequestsComponent,
@@ -37,7 +38,9 @@ import { FinishedRequestsComponent } from './components/finished-requests/finish
     EmployeeRequestComponent,
     LoginComponent,
     AddEmployeeComponent,
-    FinishedRequestsComponent
+    FinishedRequestsComponent,
+    EmployeeRequestsComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { FinishedRequestsComponent } from './components/finished-requests/finish
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    FormsModule
   ],
   providers: [
     CookieService,

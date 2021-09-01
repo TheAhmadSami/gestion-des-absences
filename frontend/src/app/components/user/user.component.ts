@@ -9,7 +9,10 @@ import { url } from './../../_config';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
+
 export class UserComponent implements OnInit {
+
+  editUser: boolean = false;
 
   constructor(private cookieService: CookieService) {
     this.getUserData();
@@ -47,6 +50,14 @@ export class UserComponent implements OnInit {
       .catch(response => {
         console.log(response);
       });
+  }
+
+  showEditUser() {
+    this.editUser = true;
+  }
+
+  closeEditUser() {
+    this.editUser = false;
   }
 
 }

@@ -1,19 +1,19 @@
-<div id="menu">
+<div id="menu" *ngIf="employeeStatus">
 
   <app-user></app-user>
 
   <ul id="menu_list">
     <div>
 
-      <li class="active">
-        <a href="">
+      <li mat-menu-item routerLink="employee" routerLinkActive="active">
+        <a href="./employee">
           <i class="fal fa-file-spreadsheet"></i>
           Requests
         </a>
       </li>
 
-      <li class="">
-        <a href="">
+      <li mat-menu-item routerLink="p-requests" routerLinkActive="active">
+        <a href="./p-requests">
           <i class="fal fa-file-spreadsheet"></i>
           Previous Requests
         </a>

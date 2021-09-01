@@ -1,33 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
+import { CookieService } from 'ngx-cookie-service';
 
 import { url } from './../../_config';
 
 @Component({
-  selector: 'app-employee',
-  templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.scss']
+  selector: 'app-employee-requests',
+  templateUrl: './employee-requests.component.html',
+  styleUrls: ['./employee-requests.component.scss']
 })
-export class EmployeeComponent implements OnInit {
+export class EmployeeRequestsComponent implements OnInit {
 
   requests: any;
+  employeeId: string = this.cookieService.get('halaLogin');
 
-  addEmployeeModel: boolean = false;
-  status = false;
-
-  constructor() {
+  constructor(private cookieService: CookieService) {
     this.loadRequests();
+    console.log(this.employeeId);
   }
+
 
   ngOnInit(): void {
-  }
-
-  showEmployeeForm(){
-    this.addEmployeeModel = true;
-  }
-
-  closeAddEmployee(){
-    this.addEmployeeModel = false;
   }
 
   diffDates(firstDate: any, secondDate: any) {
@@ -42,9 +35,13 @@ export class EmployeeComponent implements OnInit {
 
     let self = this;
 
+    let formData = new FormData();
+    formData.append('employeeId', this.employeeId);
+
     axios({
       method: 'post',
-      url: url + 'getEmployees.php',
+      url: url + 'getEmployeeRequests.php',
+      data: formData,
       headers: { 'Content-Type': 'multipart/form-data' }
     })
       .then(response => {
@@ -80,7 +77,8 @@ export class EmployeeComponent implements OnInit {
 
         console.log(response.data);
         this.loadRequests();
-        
+
+
       })
       .catch(response => {
         console.log(response);

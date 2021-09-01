@@ -1,3 +1,15 @@
+<div class="controls">
+  <div class="left-controls">
+    <input type="text" id="search">
+
+  </div>
+  <button (click)='showEmployeeForm()'>
+    <i class="fal fa-plus-circle"></i>
+    Add Employee
+  </button>
+
+</div>
+
 <div class="requests-body">
   <table>
     <thead>
@@ -7,7 +19,6 @@
         <th>Password</th>
         <th>Position</th>
         <th>Days</th>
-        <th>V-Days</th>
       </tr>
     </thead>
     <tbody>
@@ -24,10 +35,11 @@
         <td>{{ request.password }}</td>
         <td>{{ request.position }}</td>
         <td>{{ request.days }}</td>
-        <td>{{ request.days }}</td>
 
       </tr>
 
     </tbody>
   </table>
 </div>
+
+<app-add-employee *ngIf='addEmployeeModel' (closeBtnClicked)='closeAddEmployee()'></app-add-employee>

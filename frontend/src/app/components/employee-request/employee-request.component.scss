@@ -7,10 +7,13 @@ textarea {
 .controls {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin-top: 20px;
+  gap: 20px;
 
   .dates {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
   }
 }

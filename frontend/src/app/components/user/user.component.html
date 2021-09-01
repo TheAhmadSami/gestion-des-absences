@@ -6,4 +6,8 @@
     <p class="position">{{ userPosition }}</p>
   </div>
 
+  <i class="far fa-cog" (click)='showEditUser()'></i>
+
 </div>
+
+<app-edit-user *ngIf='editUser' (closeBtnClicked)='closeEditUser()'></app-edit-user>

@@ -38,6 +38,7 @@ export class RequestsComponent implements OnInit {
     })
       .then(response => {
 
+        console.log(response.data);
         self.requests = response.data;
 
       })
@@ -46,18 +47,24 @@ export class RequestsComponent implements OnInit {
       });
   }
 
-  requestAction(requestId: any, status: number) {
-    let requestStatus = 0;
+  requestAction(userId: any, requestId: any, status: number, from_date: any, to_date: any, days: any) {
+    let requestStatus = 0;    
 
-    if (status == 1)
+    let vDays = this.diffDates(from_date, to_date);
+    let rDays = days;
+
+    if (status == 1){
       requestStatus = 1;
-
-    else
+      rDays = days-vDays;
+    }else{
       requestStatus = 2;
+    }
 
     let formData = new FormData();
-    formData.append('id', requestId);
+    formData.append('userId', userId);
+    formData.append('requestId', requestId);
     formData.append('requestStatus', requestStatus.toString());
+    formData.append('rDays', rDays.toString());
 
     axios({
       method: 'post',
@@ -68,7 +75,7 @@ export class RequestsComponent implements OnInit {
       .then(response => {
 
         console.log(response.data);
-        this.loadRequests();
+        window.location.reload();
 
 
       })

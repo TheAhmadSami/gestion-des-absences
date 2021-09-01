@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { ToastrService } from 'ngx-toastr';
+import { CookieService } from 'ngx-cookie-service';
 
 import { url } from '../../_config';
 
@@ -11,17 +12,19 @@ import { url } from '../../_config';
 })
 export class EmployeeRequestComponent implements OnInit {
 
-  employeeId: string = "548674215";
+  employeeId: string = this.cookieService.get('halaLogin');
 
-  constructor(private toastr: ToastrService) { }
+  constructor(private toastr: ToastrService, private cookieService: CookieService) {
+    console.log(this.employeeId);
+  }
 
   ngOnInit(): void {
 
 
   }
 
-  onClick(message:string, fromDate: string, toDate: string){
-    
+  onClick(message: string, fromDate: string, toDate: string) {
+
     let formData = new FormData();
     formData.append('employeeId', this.employeeId);
     formData.append('message', message);
@@ -34,13 +37,15 @@ export class EmployeeRequestComponent implements OnInit {
       data: formData,
       headers: { 'Content-Type': 'multipart/form-data' }
     })
-    .then(response => {
-      this.toastr.success(`Your request with id ${ response.data } has successfuly submited to admin`, 'Request submitted');
-    })
-    .catch(response => {
-      console.log(response);
-    });
-    
+      .then(response => {
+        console.log(response);
+        
+        this.toastr.success(`Your request with id ${response.data} has successfuly submited to admin`, 'Request submitted');
+      })
+      .catch(response => {
+        console.log(response);
+      });
+
   }
 
 }

@@ -36,15 +36,17 @@ export class LoginComponent implements OnInit {
 
         if (response.data) {
 
-          let data = response.data[0];
+          let data = response.data[0];          
 
           if (data['type'] == 1) {
             this.loginBtnClicked.emit('1');
             window.location.href = '/requests';
           }
 
-          else if (data['type'] == 2)
+          else if (data['type'] == 2){
             this.loginBtnClicked.emit('2');
+            window.location.href = '/employee';
+          }
 
           this.cookieService.set('halaLogin', data['id'], 14);
 

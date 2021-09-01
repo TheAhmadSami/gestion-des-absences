@@ -4,8 +4,8 @@
 
 </div>
 
-<div id="right_section">
+<div id="right_section" *ngIf="employeeStatus">
 
-  <app-employee-request></app-employee-request>
+  <router-outlet></router-outlet>
   
 </div>

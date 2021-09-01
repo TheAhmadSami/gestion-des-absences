@@ -1,3 +1,15 @@
+<div class="controls">
+  <div class="left-controls">
+    <input type="text" id="search">
+
+    <div class="checkbox">
+      <input type="checkbox" (click)="confirmClick($event)">
+      <span>Show Confirmed requests only</span>
+    </div>
+
+  </div>
+</div>
+
 <div class="requests-body">
   <table>
     <thead>
@@ -27,8 +39,8 @@
           {{ request.message }}
         </td>
         <td>
-          <button (click)="requestAction(request.id, 1)" ><i class="far fa-check"></i></button>
-          <button (click)="requestAction(request.id, 2)" ><i class="far fa-times"></i></button>
+          <button [ngClass]="request.status == '1' ? 'active' : ''" ><i class="far fa-check"></i></button>
+          <button [ngClass]="request.status == '2' ? 'active' : ''" ><i class="far fa-times"></i></button>
         </td>
 
       </tr>

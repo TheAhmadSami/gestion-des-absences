@@ -12,7 +12,7 @@ export class FinishedRequestsComponent implements OnInit {
 
   requests: any;
 
-  constructor() { 
+  constructor() {
     this.loadRequests();
   }
 
@@ -25,6 +25,35 @@ export class FinishedRequestsComponent implements OnInit {
     secondDate = new Date(secondDate);
 
     return Math.round(Math.abs((firstDate - secondDate) / oneDay));
+  }
+
+  confirmClick(e: any) {
+    if (e.target.checked)
+      this.loadConfirmedRequests()
+
+    else
+      this.loadRequests()
+  }
+
+  loadConfirmedRequests() {
+
+    let self = this;
+
+    axios({
+      method: 'post',
+      url: url + 'getConfirmedRequests.php',
+      headers: { 'Content-Type': 'multipart/form-data' }
+    })
+      .then(response => {
+
+        self.requests = response.data;
+
+      })
+      .catch(response => {
+        console.log(response);
+      });
+
+
   }
 
   loadRequests() {

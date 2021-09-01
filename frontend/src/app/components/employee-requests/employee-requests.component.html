@@ -1,19 +1,15 @@
-<div class="controls">
-  <div class="left-controls">
-    <input type="text" id="search">
-
-  </div>
-</div>
-
 <div class="requests-body">
+  <div class="header">
+    <h1>Requests</h1>
+  </div>
+  
   <table>
     <thead>
       <tr>
         <th>Name</th>
         <th>From</th>
         <th>To</th>
-        <th>Vecation Days</th>
-        <th>Remaining Days</th>
+        <th>Days</th>
         <th>Reason</th>
         <th>Status</th>
       </tr>
@@ -31,13 +27,12 @@
         <td>{{ request.from_date }}</td>
         <td>{{ request.to_date }}</td>
         <td>{{ diffDates(request.from_date, request.to_date) }}</td>
-        <td>{{ request.r_days }}</td>
         <td [title]="request.message">
           {{ request.message }}
         </td>
         <td>
-          <button (click)="requestAction(request.user_id, request.id, 1, request.from_date, request.to_date, request.days)" ><i class="far fa-check"></i></button>
-          <button (click)="requestAction(request.user_id, request.id, 2, request.from_date, request.to_date, request.days)" ><i class="far fa-times"></i></button>
+          <button [ngClass]="request.status == '1' ? 'active' : ''" ><i class="far fa-check"></i></button>
+          <button [ngClass]="request.status == '2' ? 'active' : ''" ><i class="far fa-times"></i></button>
         </td>
 
       </tr>

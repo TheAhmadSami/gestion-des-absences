@@ -38,7 +38,7 @@ export class AddEmployeeComponent implements OnInit {
 
 
   addEmployee(firstName: string, lastName: string, email: string, mobile: string, address: string, vDays: string, password: string, position: string) {
-    
+
 
     let formData = new FormData();
     formData.append('firstName', firstName);
@@ -49,7 +49,7 @@ export class AddEmployeeComponent implements OnInit {
     formData.append('password', password);
     formData.append('vDays', vDays);
     formData.append('employeeImg', this.employeeImg);
-    formData.append('position', position);    
+    formData.append('position', position);
 
     axios({
       method: 'post',
@@ -58,10 +58,21 @@ export class AddEmployeeComponent implements OnInit {
       headers: { 'Content-Type': 'multipart/form-data' }
     })
       .then(response => {
-        this.toastr.success(`${firstName} ${lastName} has been added with id ${response.data}`, 'New Employee');
 
-        this.closeBtnClicked.emit(false);
-        
+        if (response.data.errorInfo === undefined) {
+          console.log('undefined');
+          
+          this.toastr.success(`${firstName} ${lastName} has been added with id ${response.data}`, 'New Employee');
+
+          this.closeBtnClicked.emit(false);
+        } else {
+          console.log('defined');
+          
+          if (response.data.errorInfo[1] == 1062) {
+            this.toastr.error('Duplicated Email', 'Error');
+          }
+        }
+
       })
       .catch(response => {
         console.log(response);
