@@ -48,7 +48,7 @@ export class EditUserComponent implements OnInit {
     })
       .then(response => {
 
-        console.log(response.data[0]);
+        console.log(response.data);
 
         this.email = response.data[0].email;
         this.mobile = response.data[0].mobile;
@@ -97,6 +97,8 @@ export class EditUserComponent implements OnInit {
         headers: { 'Content-Type': 'multipart/form-data' }
       })
         .then(response => {
+          console.log(response.data);
+          
           this.toastr.success(` has been added with id ${response.data}`, 'New Employee');
 
           this.closeBtnClicked.emit(false);
@@ -106,7 +108,7 @@ export class EditUserComponent implements OnInit {
           console.log(response);
         });
     } else {
-
+      
       var file = employeeImage.files[0];
       var reader = new FileReader();
       let self = this;
@@ -126,6 +128,7 @@ export class EditUserComponent implements OnInit {
           headers: { 'Content-Type': 'multipart/form-data' }
         })
           .then(response => {
+            console.log(response.data);
             self.toastr.success(` has been added with id ${response.data}`, 'New Employee');
 
             self.closeBtnClicked.emit(false);
